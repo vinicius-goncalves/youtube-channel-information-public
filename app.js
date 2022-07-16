@@ -66,12 +66,12 @@ popupWrappers.forEach(popup => {
             const channelTotalVideos = document.createElement('li')
             channelTotalVideos.innerHTML = `- Total de vídeos: ${statistics.videoCount}`
 
-            const hiddenSubscribers = statistics.hiddenSubscriberCount
+            const hiddenSubscribers = !statistics.hiddenSubscriberCount
                 ? '<span style="color: #55ff00; font-weight: bold;">ATIVADO</span>'
                 : '<span style="color: #ff0000; font-weight: bold">DESATIVADO</span>'
 
             const subscriberCount = document.createElement('li')
-            subscriberCount.innerHTML = `- Total de inscritos ocultos: ${hiddenSubscribers}`
+            subscriberCount.innerHTML = `- A quantidade de inscritos está ${hiddenSubscribers}`
 
             const itemsToAdd = [channelName, channelTotalViews, channelTotalVideos, subscriberCount]
             
