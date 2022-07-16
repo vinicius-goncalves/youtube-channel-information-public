@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>YouTube | Channel Information</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="nav-tools">
+            <div class="tools-field-wrapper">
+                <div class="search-channel-wrapper custom-chip" data-tool="search-channel">
+                    <i class="material-icons" data-tool="search-channel">search</i>
+                    <span data-tool="search-channel">Pesquisar canal</span>
+
+                    <div class="search-channel-pop-wrapper popup-wrapper" data-popup-wrapper="1">
+                        <div class="search-channel-popup-content" data-popup="1">
+                            <input type="text" name="channel" id="channel" placeholder="Insira o URL do canal" class="search-channel-popup" value="UCFiCc03UdOpKn0ib3UcSBSQ">
+                            <input type="button" data-tool="search-button" value="Pesquisar" data-popup="1">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="last-channel-search-wrapper custom-chip">
+                    <i class="material-icons">history</i>
+                    <span data-tool="last-searches">Últimas pesquisas</span>
+                </div>
+            </div>
+        </div>
+        <div class="channel-information-wrapper">
+            <div class="channel-information">
+                <ul class="ul-channel-data"></ul>
+                <img class="user-channel-image">
+            </div>
+        </div>
+        <div class="channel-information-videos-wrapper">
+            <div class="channel-information-videos">
+                <div class="video-one video">
+
+                </div>
+                <div class="video-one video">
+    
+                </div>
+                <div class="video-one video">
+    
+                </div>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
