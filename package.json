@@ -1,0 +1,26 @@
+{
+  "name": "youtube-channel-information",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinicius-goncalves/youtube-channel-information.git"
+  },
+  "author": "vinicius-goncalves.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vinicius-goncalves/youtube-channel-information/issues"
+  },
+  "homepage": "https://github.com/vinicius-goncalves/youtube-channel-information#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

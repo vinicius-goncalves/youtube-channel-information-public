@@ -11,10 +11,15 @@ const channelInformationWrapper = document.querySelector('.channel-information')
 const ulChannelData = document.querySelector('.ul-channel-data')
 const userImage = document.querySelector('.user-channel-image')
 
-const YouTubeAPI = 'https://www.googleapis.com/youtube/v3/channels'
-const fetchToURL = (channelURL) => 
-    fetch(`${YouTubeAPI}?part=snippet&part=statistics&part=brandingSettings&id=${channelURL}&key=AIzaSyB7oXKf-pmELre2alQSetuuMm8Yfy7KOJI`)
+const YOUTUBE_API = 'https://www.googleapis.com/youtube/v3/channels'
+const API_KEY = 'AIzaSyBMy-rUQG1FRrwQEGC-fZF7OqCAfF-HYlU'
+
+const fetchChannelDetails = (channelURL) => 
+    fetch(`${YOUTUBE_API}?part=snippet&part=statistics&part=brandingSettings&id=${channelURL}&key=${API_KEY}`)
         .then(data => data.json())
+
+const fetchChannelVideos = (channelURL) => 
+   fetch(`${YOUTUBE_API}?channelId=${channelURL}&maxResults=50&key=${API_KEY}`) 
 
 navbarWrapper.addEventListener('click', event => {
     
@@ -45,7 +50,9 @@ popupWrappers.forEach(popup => {
             const popupWrapper = popupWrapperFromId(event.target.dataset.popup)
             popupWrapper?.removeAttribute('style')
 
-            const data = await fetchToURL(searchChannelPopup.value)
+            const data = await fetchChannelDetails(searchChannelPopup.value)
+            console.log(data)
+            
             const { snippet, snippet: { title }, statistics } = data.items[0]
 
             const { thumbnails: { ['default']: defaultIcon, ['medium']: mediumIcon, high } } = snippet
@@ -67,11 +74,11 @@ popupWrappers.forEach(popup => {
             channelTotalVideos.innerHTML = `- Total de vídeos: ${statistics.videoCount}`
 
             const hiddenSubscribers = !statistics.hiddenSubscriberCount
-                ? '<span style="color: #3ebb00; font-weight: bold;">ATIVADA</span>'
+                ? '<span style="color: #3ebb00; font-weight: bold;">PÚBLICA</span>'
                 : '<span style="color: #ff0000; font-weight: bold">DESATIVADA</span>'
 
             const subscriberCount = document.createElement('li')
-            subscriberCount.innerHTML = `- A quantidade de inscritos está ${hiddenSubscribers}`
+            subscriberCount.innerHTML = `- A contagem de inscritos está ${hiddenSubscribers}`
 
             const formatedSubscribers = Number.parseInt(statistics.subscriberCount).toLocaleString('pt-BR', { style: 'decimal' })
 
